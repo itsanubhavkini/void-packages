@@ -1,0 +1,17 @@
+# Template file for 'river'
+pkgname=river
+version=1
+revision=1
+hostmakedepends="wayland-protocols pkg-config scdoc"
+makedepends="wayland-devel wlroots-devel libxkbcommon-devel libevdev-devel pixman-devel"
+depends=""
+short_desc="s"
+maintainer="Anubhav Kini <anubhavkini@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="s"
+distfiles="https://github.com/ifreund/river/archive/refs/heads/master.zip"
+checksum=ab449c9a7906e6688e941c04e95797227076b4ac719511998eeb649cff31af7f
+nopie_files="/usr/bin/rivertile /usr/bin/river /usr/bin/riverctl"
+do_install() {
+	zig build -Drelease-safe -Dxwayland --prefix "$DESTDIR/usr" install
+}
