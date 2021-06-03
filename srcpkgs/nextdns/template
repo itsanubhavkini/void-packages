@@ -1,0 +1,18 @@
+# Template file for 'nextdns'
+pkgname=nextdns
+version=1.32.3
+revision=1
+build_style=go
+go_import_path="github.com/nextdns/nextdns"
+go_ldflags="-X main.version=${version}"
+short_desc="NextDNS CLI client (DoH Proxy)"
+maintainer="Anubhav Kini <anubhavkini@gmail.com>"
+license="MIT"
+homepage="https://nextdns.io/"
+distfiles="https://${go_import_path}/archive/refs/tags/v${version}.tar.gz"
+checksum=a11ed20163bff54500cd2874f5adb0d8531aadbbe95560f76be181598085b769
+
+post_install() {
+	vsv nextdns
+	vlicense LICENSE
+}
